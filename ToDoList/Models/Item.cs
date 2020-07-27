@@ -8,6 +8,20 @@ namespace ToDoList.Models
     public string Description { get; set; }
     public int Id { get; }
 
+    public override bool Equals(System.Object otherItem)
+    {
+      if (!(otherItem is Item))
+      {
+        return false;
+      }
+      else
+      {
+        Item newItem = (Item) otherItem;
+        bool descriptionEquality = (this.Description == newItem.Description);
+        return descriptionEquality;
+      }
+    }
+
     public Item(string description)
     {
       Description = description;
