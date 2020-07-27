@@ -1,3 +1,4 @@
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
 namespace ToDoList.Models
@@ -10,6 +11,12 @@ namespace ToDoList.Models
     public Item(string description)
     {
       Description = description;
+    }
+
+    public Item(string description, int id)
+    {
+      Description = description;
+      Id = id;
     }
 
     public static List<Item> GetAll()
@@ -37,6 +44,7 @@ namespace ToDoList.Models
 
     public static void ClearAll()
     {
+
     }
 
     public static Item Find(int searchId)
