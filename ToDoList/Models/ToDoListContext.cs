@@ -1,15 +1,11 @@
-using System;
-using MySql.Data.MySqlClient;
-using ToDoList;
+using Microsoft.EntityFrameworkCore;
 
 namespace ToDoList.Models
 {
-  public class DB
+  public class ToDoListContext : DbContext
   {
-    public static MySqlConnection Connection()
-    {
-      MySqlConnection conn = new MySqlConnection(DBConfiguration.ConnectionString);
-      return conn;
-    }
+    public DbSet<Item> Items { get; set; }
+
+    public ToDoListContext(DbContextOptions options) : base(options) { }
   }
 }
