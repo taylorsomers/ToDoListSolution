@@ -114,16 +114,16 @@ namespace ToDoList.Tests
     }
 
     [TestMethod]
-    public void Find_ReturnsCorrectItem_Item()
+    public void Find_ReturnsCorrectItemFromDatabase_Item()
     {
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
-      Item newItem1 = new Item(description01);
-      Item newItem2 = new Item(description02);
+      Item newItem = new Item("Mow the lawn");
+      newItem.Save();
+      Item newItem2 = new Item("Wash dishes");
+      newItem2.Save();
 
-      Item result = Item.Find(2);
+      Item foundItem = Item.Find(newItem.Id);
 
-      Assert.AreEqual(newItem2, result);
+      Assert.AreEqual(newItem, foundItem);
     }
 
     [TestMethod]
@@ -136,7 +136,7 @@ namespace ToDoList.Tests
     }
 
     [TestMethod]
-    public void Save_SaveToDatabase_ItemList()
+    public void Save_SavesToDatabase_ItemList()
     {
       Item testItem = new Item("Mow the lawn");
 
