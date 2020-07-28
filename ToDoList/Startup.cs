@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ToDoList.Models;
 
 namespace ToDoList
 {
@@ -43,6 +44,6 @@ namespace ToDoList
         {
           await context.Response.WriteAsync("Something went wrong!");
         });
-
+      }
     }
   }
