@@ -18,7 +18,7 @@ namespace ToDoList
       Configuration = builder.Build();
     }
 
-    public IConfigurationRoot Configuration { get; }
+    public IConfigurationRoot Configuration { get; set; }
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -31,8 +31,10 @@ namespace ToDoList
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseStaticFiles();
+
       app.UseDeveloperExceptionPage();
-      
+
       app.UseMvc(routes =>
       {
         routes.MapRoute(
@@ -40,10 +42,10 @@ namespace ToDoList
           template: "{controller=Home}/{action=Index}/{id?}");
       });
 
-        app.Run(async (context) =>
-        {
-          await context.Response.WriteAsync("Something went wrong!");
-        });
-      }
+      app.Run(async (context) =>
+      {
+        await context.Response.WriteAsync("Something went wrong!");
+      });
     }
   }
+}

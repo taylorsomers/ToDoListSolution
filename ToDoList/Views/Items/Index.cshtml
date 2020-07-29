@@ -1,17 +1,12 @@
-@{
-  Layout = "_Layout";
-}
-
-@using ToDoList.Models;
-@model List<ToDoList.Models.Item>;
-
-<h1>Items</h1>
-
-<ul>
-  @foreach(Item item in Model)
-  {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</li>
-  }
-</ul>
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+  <body>
+    @RenderBody()
+  </body>
+</html>

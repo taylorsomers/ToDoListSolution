@@ -13,6 +13,7 @@
 //       List<Category> allCategories = Category.GetAll();
 //       return View(allCategories);
 //     }
+
 //     [HttpGet("/categories/new")]
 //     public ActionResult New()
 //     {
@@ -37,6 +38,7 @@
 //       return View(model);
 //     }
 
+//     // This one creates new Items within a given Category, not new Categories:
 //     [HttpPost("/categories/{categoryId}/items")]
 //     public ActionResult Create(int categoryId, string itemDescription)
 //     {
